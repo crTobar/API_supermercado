@@ -152,6 +152,15 @@ def read_invoice(invoice_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Invoice not found")
     return db_invoice
 
+# un get que es de la union de tablas...
+@app.get("/users/{user_id}/invoices/", response_model=List[schemas.Invoice], tags=["Users"])
+def read_invoices_for_user(user_id: int, db: Session = Depends(get_db)):
+# Primero, verifica que el usuario exista para dar un error claro
+    db_user = crud.get_user(db, user_id=user_id)
+    if db_user is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    return crud.get_invoices_by_user(db=db, user_id=user_id)
+
 @app.put("/invoices/{invoice_id}", response_model=schemas.Invoice, tags=["Invoices"])
 def update_invoice_put(invoice_id: int, invoice: schemas.InvoiceCreate, db: Session = Depends(get_db)):
     db_invoice = crud.get_invoice(db, invoice_id=invoice_id)
@@ -189,6 +198,15 @@ def read_purchase(purchase_id: int, db: Session = Depends(get_db)):
     if db_purchase is None:
         raise HTTPException(status_code=404, detail="Purchase not found")
     return db_purchase
+
+# el otro get de la unin de tablas
+@app.get("/users/{user_id}/purchases/", response_model=List[schemas.Purchase], tags=["Users"])
+def read_purchases_for_user(user_id: int, db: Session = Depends(get_db)):
+# Verifica que el usuario exista
+    db_user = crud.get_user(db, user_id=user_id)
+    if db_user is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    return crud.get_purchases_by_user(db=db, user_id=user_id)
 
 @app.put("/purchases/{purchase_id}", response_model=schemas.Purchase, tags=["Purchases"])
 def update_purchase_put(purchase_id: int, purchase: schemas.PurchaseCreate, db: Session = Depends(get_db)):
