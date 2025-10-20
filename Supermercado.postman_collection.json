@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "a9b8c7d6-e5f4-a3b2-c1d0-e1f2a3b4c5d6",
+		"name": "API Supermercado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{"name": "Get All Products", "request": {"method": "GET", "header": [], "url": "http://127.0.0.1:8000/products/"}},
+				{"name": "Get Product by ID", "request": {"method": "GET", "header": [], "url": "http://127.0.0.1:8000/products/1"}},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {"mode": "raw", "raw": "{\n    \"name\": \"Leche Entera\",\n    \"description\": \"Leche de vaca pasteurizada\",\n    \"sku\": \"LECH-ENT-1L\",\n    \"price\": 1.50,\n    \"category\": \"Lácteos\",\n    \"stock_quantity\": 150,\n    \"is_active\": true\n}", "options": {"raw": {"language": "json"}}},
+						"url": "http://127.0.0.1:8000/products/"
+					}
+				},
+				{
+					"name": "Update Product (PUT)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {"mode": "raw", "raw": "{\n    \"name\": \"Leche Descremada\",\n    \"description\": \"Leche de vaca descremada\",\n    \"sku\": \"LECH-DESC-1L\",\n    \"price\": 1.60,\n    \"category\": \"Lácteos\",\n    \"stock_quantity\": 100,\n    \"is_active\": true\n}", "options": {"raw": {"language": "json"}}},
+						"url": "http://127.0.0.1:8000/products/1"
+					}
+				},
+				{
+					"name": "Update Product (PATCH)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {"mode": "raw", "raw": "{\n    \"price\": 1.65,\n    \"stock_quantity\": 110\n}", "options": {"raw": {"language": "json"}}},
+						"url": "http://127.0.0.1:8000/products/1"
+					}
+				},
+				{"name": "Delete Product", "request": {"method": "DELETE", "header": [], "url": "http://127.0.0.1:8000/products/1"}}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{"name": "Get All Users", "request": {"method": "GET", "header": [], "url": "http://127.0.0.1:8000/users/"}},
+				{"name": "Get User by ID", "request": {"method": "GET", "header": [], "url": "http://127.0.0.1:8000/users/1"}},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {"mode": "raw", "raw": "{\n    \"email\": \"cliente@ejemplo.com\",\n    \"password_hash\": \"hash_muy_seguro_123\",\n    \"first_name\": \"Ana\",\n    \"last_name\": \"Gomez\",\n    \"phone_number\": \"+123456789\",\n    \"address\": \"Calle Falsa 123, Ciudad\"\n}", "options": {"raw": {"language": "json"}}},
+						"url": "http://127.0.0.1:8000/users/"
+					}
+				},
+				{
+					"name": "Update User (PUT)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {"mode": "raw", "raw": "{\n    \"email\": \"cliente.nuevo@ejemplo.com\",\n    \"password_hash\": \"nuevo_hash_456\",\n    \"first_name\": \"Ana\",\n    \"last_name\": \"Perez\",\n    \"phone_number\": \"+987654321\",\n    \"address\": \"Avenida Siempre Viva 742\"\n}", "options": {"raw": {"language": "json"}}},
+						"url": "http://127.0.0.1:8000/users/1"
+					}
+				},
+				{
+					"name": "Update User (PATCH)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {"mode": "raw", "raw": "{\n    \"phone_number\": \"+555555555\",\n    \"address\": \"Nueva dirección\"\n}", "options": {"raw": {"language": "json"}}},
+						"url": "http://127.0.0.1:8000/users/1"
+					}
+				},
+				{"name": "Delete User", "request": {"method": "DELETE", "header": [], "url": "http://127.0.0.1:8000/users/1"}}
+			]
+		},
+		{
+			"name": "Employees",
+			"item": [
+				{"name": "Get All Employees", "request": {"method": "GET", "header": [], "url": "http://127.0.0.1:8000/employees/"}},
+				{"name": "Get Employee by ID", "request": {"method": "GET", "header": [], "url": "http://127.0.0.1:8000/employees/1"}},
+				{
+					"name": "Create Employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {"mode": "raw", "raw": "{\n    \"first_name\": \"Juan\",\n    \"last_name\": \"Martinez\",\n    \"email\": \"juan.martinez@super.com\",\n    \"job_title\": \"Gerente de Tienda\",\n    \"department\": \"Administración\",\n    \"salary\": 75000.00,\n    \"hire_date\": \"2023-01-15\"\n}", "options": {"raw": {"language": "json"}}},
+						"url": "http://127.0.0.1:8000/employees/"
+					}
+				},
+				{
+					"name": "Update Employee (PUT)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {"mode": "raw", "raw": "{\n    \"first_name\": \"Juan\",\n    \"last_name\": \"Martinez\",\n    \"email\": \"j.martinez@super.com\",\n    \"job_title\": \"Gerente Regional\",\n    \"department\": \"Operaciones\",\n    \"salary\": 85000.00,\n    \"hire_date\": \"2023-01-15\"\n}", "options": {"raw": {"language": "json"}}},
+						"url": "http://127.0.0.1:8000/employees/1"
+					}
+				},
+				{
+					"name": "Update Employee (PATCH)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {"mode": "raw", "raw": "{\n    \"salary\": 90000.00,\n    \"job_title\": \"Director Regional\"\n}", "options": {"raw": {"language": "json"}}},
+						"url": "http://127.0.0.1:8000/employees/1"
+					}
+				},
+				{"name": "Delete Employee", "request": {"method": "DELETE", "header": [], "url": "http://127.0.0.1:8000/employees/1"}}
+			]
+		},
+		{
+			"name": "Invoices",
+			"item": [
+				{"name": "Get All Invoices", "request": {"method": "GET", "header": [], "url": "http://127.0.0.1:8000/invoices/"}},
+				{"name": "Get Invoice by ID", "request": {"method": "GET", "header": [], "url": "http://127.0.0.1:8000/invoices/1"}},
+				{
+					"name": "Create Invoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {"mode": "raw", "raw": "{\n    \"invoice_number\": \"INV-2025-001\",\n    \"invoice_date\": \"2025-10-19\",\n    \"due_date\": \"2025-11-18\",\n    \"total_amount\": 150.75,\n    \"payment_status\": \"unpaid\",\n    \"payment_method\": \"credit\",\n    \"billing_address\": \"Calle Falsa 123\"\n}", "options": {"raw": {"language": "json"}}},
+						"url": "http://127.0.0.1:8000/invoices/"
+					}
+				},
+				{
+					"name": "Update Invoice (PUT)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {"mode": "raw", "raw": "{\n    \"invoice_number\": \"INV-2025-001-MOD\",\n    \"invoice_date\": \"2025-10-20\",\n    \"due_date\": \"2025-11-19\",\n    \"total_amount\": 200.00,\n    \"payment_status\": \"paid\",\n    \"payment_method\": \"cash\",\n    \"billing_address\": \"Avenida Siempre Viva 742\"\n}", "options": {"raw": {"language": "json"}}},
+						"url": "http://127.0.0.1:8000/invoices/1"
+					}
+				},
+				{
+					"name": "Update Invoice (PATCH)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {"mode": "raw", "raw": "{\n    \"payment_status\": \"paid\",\n    \"total_amount\": 150.75\n}", "options": {"raw": {"language": "json"}}},
+						"url": "http://127.0.0.1:8000/invoices/1"
+					}
+				},
+				{"name": "Delete Invoice", "request": {"method": "DELETE", "header": [], "url": "http://127.0.0.1:8000/invoices/1"}}
+			]
+		},
+		{
+			"name": "Purchases",
+			"item": [
+				{"name": "Get All Purchases", "request": {"method": "GET", "header": [], "url": "http://127.0.0.1:8000/purchases/"}},
+				{"name": "Get Purchase by ID", "request": {"method": "GET", "header": [], "url": "http://127.0.0.1:8000/purchases/1"}},
+				{
+					"name": "Create Purchase",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {"mode": "raw", "raw": "{\n    \"item_description\": \"Compra de Lácteos y Frutas\",\n    \"quantity\": 15,\n    \"total_amount\": 85.40,\n    \"payment_method\": \"debit_card\",\n    \"payment_status\": \"completed\",\n    \"delivery_status\": \"pending\"\n}", "options": {"raw": {"language": "json"}}},
+						"url": "http://127.0.0.1:8000/purchases/"
+					}
+				},
+				{
+					"name": "Update Purchase (PUT)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {"mode": "raw", "raw": "{\n    \"item_description\": \"Compra de Carnes\",\n    \"quantity\": 5,\n    \"total_amount\": 120.00,\n    \"payment_method\": \"credit_card\",\n    \"payment_status\": \"completed\",\n    \"delivery_status\": \"shipped\"\n}", "options": {"raw": {"language": "json"}}},
+						"url": "http://127.0.0.1:8000/purchases/1"
+					}
+				},
+				{
+					"name": "Update Purchase (PATCH)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {"mode": "raw", "raw": "{\n    \"delivery_status\": \"delivered\"\n}", "options": {"raw": {"language": "json"}}},
+						"url": "http://127.0.0.1:8000/purchases/1"
+					}
+				},
+				{"name": "Delete Purchase", "request": {"method": "DELETE", "header": [], "url": "http://127.0.0.1:8000/purchases/1"}}
+			]
+		}
+	]
+}
