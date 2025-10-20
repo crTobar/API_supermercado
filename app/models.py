@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, Numeric, Boolean, TIMESTAMP, Date
+from sqlalchemy import Column, Integer, String, Text, Numeric, Boolean, TIMESTAMP, Date, ForeignKey
 from .database import Base
 
 class Product(Base):
@@ -46,9 +46,10 @@ class Invoice(Base):
     due_date = Column(Date)
     created_at = Column(TIMESTAMP, server_default='now()')
     total_amount = Column(Numeric(12, 2), nullable=False)
-    payment_status = Column(String(50))  # 'paid', 'partial', 'unpaid', 'overdue'
-    payment_method = Column(String(50))  # 'cash', 'credit', 'debit', 'check', 'transfer'
+    payment_status = Column(String(50))  
+    payment_method = Column(String(50))  
     billing_address = Column(Text)
+    user_id = Column(Integer, ForeignKey("users.user_id"), nullable=False)
 
 class Purchase(Base):
     __tablename__ = "purchases"
@@ -58,6 +59,7 @@ class Purchase(Base):
     item_description = Column(Text)
     quantity = Column(Integer, nullable=False)
     total_amount = Column(Numeric(12, 2), nullable=False)
-    payment_method = Column(String(50))  # 'cash', 'credit_card', 'debit_card', 'transfer'
-    payment_status = Column(String(50))  # 'completed', 'pending', 'failed'
-    delivery_status = Column(String(50)) # 'pending', 'shipped', 'delivered', 'cancelled'
+    payment_method = Column(String(50)) 
+    payment_status = Column(String(50))  
+    delivery_status = Column(String(50)) 
+    user_id = Column(Integer, ForeignKey("users.user_id"), nullable=False)

@@ -123,6 +123,7 @@ class InvoiceBase(BaseModel):
     payment_status: PaymentStatusEnum
     payment_method: PaymentMethodEnum
     billing_address: Optional[str] = None
+    user_id: int
 
 class InvoiceCreate(InvoiceBase):
     pass
@@ -149,6 +150,7 @@ class PurchaseBase(BaseModel):
     payment_method: PurchasePaymentMethodEnum
     payment_status: PurchasePaymentStatusEnum
     delivery_status: DeliveryStatusEnum
+    user_id: int
 
 class PurchaseCreate(PurchaseBase):
     pass

@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "a9b8c7d6-e5f4-a3b2-c1d0-e1f2a3b4c5d6",
-		"name": "API Supermercado",
+		"_postman_id": "b1c2d3e4-f5a6-b7c8-d9e0-f1a2b3c4d5e6",
+		"name": "API Supermercado - Completo con Relaciones",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -72,7 +72,23 @@
 						"url": "http://127.0.0.1:8000/users/1"
 					}
 				},
-				{"name": "Delete User", "request": {"method": "DELETE", "header": [], "url": "http://127.0.0.1:8000/users/1"}}
+				{"name": "Delete User", "request": {"method": "DELETE", "header": [], "url": "http://127.0.0.1:8000/users/1"}},
+				{ 
+					"name": "Get Invoices by User ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/users/1/invoices/"
+					}
+				},
+				{ 
+					"name": "Get Purchases by User ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/users/1/purchases/"
+					}
+				}
 			]
 		},
 		{
@@ -120,7 +136,7 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"body": {"mode": "raw", "raw": "{\n    \"invoice_number\": \"INV-2025-001\",\n    \"invoice_date\": \"2025-10-19\",\n    \"due_date\": \"2025-11-18\",\n    \"total_amount\": 150.75,\n    \"payment_status\": \"unpaid\",\n    \"payment_method\": \"credit\",\n    \"billing_address\": \"Calle Falsa 123\"\n}", "options": {"raw": {"language": "json"}}},
+						"body": {"mode": "raw", "raw": "{\n    \"invoice_number\": \"INV-2025-001\",\n    \"invoice_date\": \"2025-10-19\",\n    \"due_date\": \"2025-11-18\",\n    \"total_amount\": 150.75,\n    \"payment_status\": \"unpaid\",\n    \"payment_method\": \"credit\",\n    \"billing_address\": \"Calle Falsa 123\",\n    \"user_id\": 1\n}", "options": {"raw": {"language": "json"}}},
 						"url": "http://127.0.0.1:8000/invoices/"
 					}
 				},
@@ -129,7 +145,7 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
-						"body": {"mode": "raw", "raw": "{\n    \"invoice_number\": \"INV-2025-001-MOD\",\n    \"invoice_date\": \"2025-10-20\",\n    \"due_date\": \"2025-11-19\",\n    \"total_amount\": 200.00,\n    \"payment_status\": \"paid\",\n    \"payment_method\": \"cash\",\n    \"billing_address\": \"Avenida Siempre Viva 742\"\n}", "options": {"raw": {"language": "json"}}},
+						"body": {"mode": "raw", "raw": "{\n    \"invoice_number\": \"INV-2025-001-MOD\",\n    \"invoice_date\": \"2025-10-20\",\n    \"due_date\": \"2025-11-19\",\n    \"total_amount\": 200.00,\n    \"payment_status\": \"paid\",\n    \"payment_method\": \"cash\",\n    \"billing_address\": \"Avenida Siempre Viva 742\",\n    \"user_id\": 1\n}", "options": {"raw": {"language": "json"}}},
 						"url": "http://127.0.0.1:8000/invoices/1"
 					}
 				},
@@ -155,7 +171,7 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"body": {"mode": "raw", "raw": "{\n    \"item_description\": \"Compra de Lácteos y Frutas\",\n    \"quantity\": 15,\n    \"total_amount\": 85.40,\n    \"payment_method\": \"debit_card\",\n    \"payment_status\": \"completed\",\n    \"delivery_status\": \"pending\"\n}", "options": {"raw": {"language": "json"}}},
+						"body": {"mode": "raw", "raw": "{\n    \"item_description\": \"Compra de Lácteos y Frutas\",\n    \"quantity\": 15,\n    \"total_amount\": 85.40,\n    \"payment_method\": \"debit_card\",\n    \"payment_status\": \"completed\",\n    \"delivery_status\": \"pending\",\n    \"user_id\": 1\n}", "options": {"raw": {"language": "json"}}},
 						"url": "http://127.0.0.1:8000/purchases/"
 					}
 				},
@@ -164,7 +180,7 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
-						"body": {"mode": "raw", "raw": "{\n    \"item_description\": \"Compra de Carnes\",\n    \"quantity\": 5,\n    \"total_amount\": 120.00,\n    \"payment_method\": \"credit_card\",\n    \"payment_status\": \"completed\",\n    \"delivery_status\": \"shipped\"\n}", "options": {"raw": {"language": "json"}}},
+						"body": {"mode": "raw", "raw": "{\n    \"item_description\": \"Compra de Carnes\",\n    \"quantity\": 5,\n    \"total_amount\": 120.00,\n    \"payment_method\": \"credit_card\",\n    \"payment_status\": \"completed\",\n    \"delivery_status\": \"shipped\",\n    \"user_id\": 1\n}", "options": {"raw": {"language": "json"}}},
 						"url": "http://127.0.0.1:8000/purchases/1"
 					}
 				},

@@ -145,3 +145,13 @@ def delete_purchase(db: Session, db_purchase: models.Purchase):
     db.delete(db_purchase)
     db.commit()
     return db_purchase
+
+# nuevas funciones que trabajan con las uniones 
+
+# obtener facturas por usuario
+def get_invoices_by_user(db: Session, user_id: int):
+    return db.query(models.Invoice).filter(models.Invoice.user_id == user_id).all()
+
+# obtener compras por usuario
+def get_purchases_by_user(db: Session, user_id: int):
+    return db.query(models.Purchase).filter(models.Purchase.user_id == user_id).all()

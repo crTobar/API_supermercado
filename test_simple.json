@@ -1,0 +1,26 @@
+{
+	"info": {
+		"_postman_id": "c1c1c1c1-c1c1-c1c1-c1c1-c1c1c1c1c1c1",
+		"name": "Prueba Simple",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Google",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.google.com",
+					"protocol": "https",
+					"host": [
+						"www",
+						"google",
+						"com"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
